@@ -9,7 +9,12 @@
 int version = 0;
 uint8_t buffer[50000];
 int v = 0;
-int main(int argv, char** args) {
+
+char** get (int argv, char** args) {
+	char** g = (char**)malloc(sizeof(char*)*10);
+	for (int i = 0; i < 50; i++) {
+		g[i] = (char*)malloc(sizeof(char) * 10);
+	}
 	if (args[2] == "-v")
 		v = 1;
 	FILE* fp = fopen(args[1], "r");
@@ -91,8 +96,10 @@ int main(int argv, char** args) {
 			while (buffer[offset++] != 0 || i == 0)
 				data[i++] = buffer[offset];
 
-			if (data)
+			if (data) {
 				printf("Album: %s\n", data); // Song title
+				g[2] = data;
+			}
 
 		}
 		// Get release year
@@ -166,5 +173,5 @@ int main(int argv, char** args) {
 	else {
 		printf("File not following ID3 Header format. First 3 bytes of file %s do not equal 'ID3'. Exiting now!\n", args[1]);
 	}
-	return 0;
+	return g;
 }
