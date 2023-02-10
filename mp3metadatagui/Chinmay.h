@@ -1,4 +1,3 @@
-#pragma warning (disable : 4996)
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -6,17 +5,24 @@
 #include <iostream>
 // #include <png.h>
 
-int version = 0;
 uint8_t buffer[50000];
-int v = 0;
 
-char** get (int argv, char** args) {
+
+/* 
+* 0 Title
+* 1 Artist
+* 2 Album
+* 3 Release Year
+*/
+
+inline char** get (char** args) {
+	int v = 1;
 	char** g = (char**)malloc(sizeof(char*)*10);
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < 9; i++) {
 		g[i] = (char*)malloc(sizeof(char) * 10);
 	}
-	if (args[2] == "-v")
-		v = 1;
+	//if (args[2] == "-v")
+	//	v = 1;
 	FILE* fp = fopen(args[1], "r");
 	if (fp == NULL) { printf("File %s not found!\n", args[1]); exit(1); }
 	fread(buffer, sizeof(buffer), 1, fp);
@@ -36,7 +42,7 @@ char** get (int argv, char** args) {
 			offset++;
 		}
 		if (offset != 0)
-			if (v == 1) {
+			/*if (v == 1) {
 				printf("Header found at offset %d, header ID found as %u %u %u %u, also known as ", offset, buffer[offset], buffer[offset + 1], buffer[offset + 2], buffer[offset + 3]);
 				putchar(buffer[offset]);
 				putchar(buffer[offset + 1]);
@@ -45,7 +51,8 @@ char** get (int argv, char** args) {
 				printf("\n");
 			}
 			else
-				printf("");
+				printf("");*/
+			printf("some shit\n");
 		else
 			printf("No header found!\n");
 		// Parse header

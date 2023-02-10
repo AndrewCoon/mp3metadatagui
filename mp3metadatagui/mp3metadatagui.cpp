@@ -1,9 +1,8 @@
 // mp3metadatagui.cpp : Defines the entry point for the application.
 //
-
 #include "framework.h"
 #include "mp3metadatagui.h"
-#include "Chinmay.cpp"
+#include "Chinmay.h"
 #define MAX_LOADSTRING 100
 
 // Global Variables:
@@ -27,6 +26,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // TODO: Place code here.
 
+    get((char**)"good.mp3");
     
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);

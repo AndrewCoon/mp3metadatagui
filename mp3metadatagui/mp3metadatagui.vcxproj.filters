@@ -32,7 +32,7 @@
     <ClCompile Include="mp3metadatagui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chinmay.cpp">
+    <ClCompile Include="Chinmay.h">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,5 +48,10 @@
     <Image Include="mp3metadatagui.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\Downloads\good.mp3">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
