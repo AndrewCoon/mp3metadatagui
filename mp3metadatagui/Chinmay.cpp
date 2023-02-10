@@ -60,7 +60,7 @@ char** get (int argv, char** args) {
 			if (v == 1)
 				printf("Final offset: %d, which is: %u\n", offset, buffer[offset]);
 			printf("Song title: %s\n", data); // Song title
-
+			g[0] = data;
 		}
 		// Get Artist header
 		offset = 0;
@@ -77,7 +77,8 @@ char** get (int argv, char** args) {
 			if (offset == 0) offset++;
 			while (buffer[offset++] != 0 || i == 0)
 				data[i++] = buffer[offset];
-			printf("Song artist: %s\n", data); // Song title
+			printf("Song artist: %s\n", data); // Song artist
+			g[1] = data;
 
 		}
 		// Get album info (if it exists)
@@ -121,9 +122,10 @@ char** get (int argv, char** args) {
 			if (offset == 0) offset++;
 			while (buffer[offset++] != 0 || i == 0)
 				data[i++] = buffer[offset];
-			if (data)
-				printf("Release Year: %s\n", data); // Song title
-
+			if (data) {
+				printf("Release Year: %s\n", data); // Song year
+				g[3] = data;
+			}
 		}
 
 		// Output image
